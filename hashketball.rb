@@ -197,7 +197,7 @@ def player_stats(name)
     attributes.each do |attribute, info| 
       if info.include?(name) 
        return hash[location][attribute][:name]
-       binding.pry
+binding.pry
       end
     end
   end
