@@ -123,12 +123,18 @@ end
 
 
 def num_points_scored(name)
-  game_hash.each do |location, info| 
-    info.each do |attribute, stuff|
-      if stuff.include?(name) 
+   game_hash.each do |location, info| 
+     info.each do |attribute, stuff|
+       if stuff.include?(name) 
       return game_hash[location][attribute][name][:points]
       end
-    end
+     end
+   end
+ end
+
+def find_player(name)
+  game_hash.values.map do |locations|
+    binding.pry
   end
 end
 
@@ -187,11 +193,11 @@ def player_numbers(team_name)
 end
 
 def player_stats(name)
-  hash = game_hash
-  hash.each do |location, attributes| 
+  game_hash.each do |location, attributes| 
     attributes.each do |attribute, info| 
       if info.include?(name) 
-       return hash[location][attribute][name]
+       return hash[location][attribute][:name]
+       binding.pry
       end
     end
   end
